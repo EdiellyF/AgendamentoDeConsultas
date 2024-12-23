@@ -1,0 +1,78 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --text-color: #333;
+    --code-bg: #f8f9fa;
+}
+ body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header h1 {
+  color: var(--code-bg);
+
+}
+ .header {
+    background-color: var(--primary-color);
+    color: var(--code-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+ .content {
+    padding: 20px;
+}
+ h1, h2, h3 {
+    color: var(--primary-color);
+}
+ .method {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    background-color: white;
+}
+ code {
+    background-color: var(--code-bg);
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: 'Consolas', monospace;
+}
+ pre {
+    background-color: var(--code-bg);
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+ .params {
+    margin-left: 20px;
+}
+ .param-name {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+ .navigation {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+ .navigation ul {
+    list-style: none;
+    padding: 0;
+}
+ .navigation a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+ .navigation a:hover {
+    text-decoration: underline;
+}

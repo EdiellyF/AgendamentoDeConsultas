@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação - Módulo de Agendamento</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+   
+
+
+    <header class="header">
+    <h1> Módulo de Agendamento</h1>
+    </header>
+    <small class="file-path">Arquivo fonte: <code>src/modules/form/submit.js</code></small>
+    <p>
+        Este módulo é responsável por gerenciar o formulário de agendamento de consultas. 
+        Ele permite que os usuários registrem novos agendamentos com informações do paciente, 
+        incluindo nome, CPF e horário da consulta.
+    </p>
+
+    <h2>Funcionalidades Principais</h2>
+    <ul>
+        <li>Captura de dados do paciente (nome e CPF)</li>
+        <li>Validação de campos obrigatórios</li>
+        <li>Seleção de data e hora da consulta</li>
+        <li>Geração automática de ID único para cada agendamento</li>
+        <li>Limpeza automática do formulário após o agendamento</li>
+    </ul>
+
+    <h2>Campos do Formulário</h2>
+    <ul>
+        <li><strong>Nome do Paciente:</strong> Campo obrigatório para identificação do paciente</li>
+        <li><strong>CPF:</strong> Documento de identificação do paciente (formatação automática)</li>
+        <li><strong>Data:</strong> Data da consulta (limitada à data atual em diante)</li>
+        <li><strong>Horário:</strong> Seleção do horário disponível para a consulta</li>
+    </ul>
+
+    <div class="important">
+        <h3>Observações Importantes</h3>
+        <ul>
+            <li>A data mínima permitida é sempre a data atual</li>
+            <li>É obrigatório selecionar um horário para realizar o agendamento</li>
+            <li>O CPF é automaticamente formatado (remove pontos e traços)</li>
+            <li>Após o agendamento, os campos são limpos automaticamente</li>
+        </ul>
+    </div>
+
+    <h2>Fluxo de Funcionamento</h2>
+    <ol>
+        <li>Usuário preenche os dados do paciente</li>
+        <li>Seleciona a data desejada</li>
+        <li>Escolhe um horário disponível</li>
+        <li>Sistema valida os dados inseridos</li>
+        <li>Realiza o agendamento se todos os dados estiverem corretos</li>
+        <li>Atualiza a lista de horários disponíveis</li>
+        <li>Limpa o formulário para um novo agendamento</li>
+    </ol>
+
+    <h2>Tratamento de Erros</h2>
+    <ul>
+        <li>Alerta se o nome do paciente não for preenchido</li>
+        <li>Alerta se nenhum horário for selecionado</li>
+        <li>Log de erro no console em caso de falha no agendamento</li>
+    </ul>
+
+    <h2>Dependências</h2>
+    <div class="code-block">
+        <pre>
+- dayjs: Para manipulação de datas
+- scheduleNew: Serviço para criar novo agendamento
+- schedulesday: Função para atualizar a lista de horários
+- gerarUIDD: Serviço para gerar IDs únicos
+        </pre>
+    </div>
+
+    <div class="related-pages">
+        <h3>Páginas Relacionadas</h3>
+        <ul>
+            <li><a href="../modules/schedules-show.html">Exibição de Agendamentos</a></li>
+            <li><a href="../components/ButtonSelect.html">Componente ButtonSelect</a></li>
+        </ul>
+    </div>
+
+    <footer>
+        <p><small>Última atualização: <script>document.write(new Date().toLocaleDateString())</script></small></p>
+    </footer>
+</body>
+</html> 

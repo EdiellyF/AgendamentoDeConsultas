@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação - CancelButton</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="navigation">
+        <h3>Índice</h3>
+        <ul>
+            <li><a href="#overview">Visão Geral</a></li>
+            <li><a href="#functionality">Funcionalidade</a></li>
+            <li><a href="#dependencies">Dependências</a></li>
+            <li><a href="#example">Exemplo de Uso</a></li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <h1>CancelButton</h1>
+        <p>Módulo responsável pela funcionalidade de cancelamento de agendamentos</p>
+    </header>
+
+    <div class="content">
+        <section id="overview">
+            <h2>Visão Geral</h2>
+            <p>O módulo <code>cancelButton.js</code> implementa a funcionalidade de cancelamento de agendamentos 
+            no sistema. Ele gerencia a interação do usuário com o botão de cancelamento e realiza as operações 
+            necessárias para remover o agendamento tanto da interface quanto do banco de dados.</p>
+        </section>
+
+        <section id="functionality">
+            <h2>Funcionalidade</h2>
+            <div class="method">
+                <h3>Event Listener</h3>
+                <p>O módulo adiciona um event listener para cada período de agendamento (.period) que:</p>
+                <ul>
+                    <li>Detecta cliques no ícone de cancelamento</li>
+                    <li>Solicita confirmação do usuário</li>
+                    <li>Remove o agendamento do banco de dados</li>
+                    <li>Atualiza a interface removendo o item da lista</li>
+                </ul>
+            </div>
+
+            <div class="method">
+                <h3>confirmarRegistroDeletado()</h3>
+                <p>Função que exibe um diálogo de confirmação para o usuário.</p>
+                <h4>Retorno:</h4>
+                <p>Boolean: true se o usuário confirmar, false caso contrário</p>
+            </div>
+        </section>
+
+        <section id="dependencies">
+            <h2>Dependências</h2>
+            <ul>
+                <li><code>scheduleDeleteById</code>: Serviço para deletar agendamento por ID</li>
+                <li><code>schedulesday</code>: Função para atualizar a visualização dos agendamentos</li>
+            </ul>
+        </section>
+
+        <section id="example">
+            <h2>Exemplo de Uso</h2>
+            <p>O módulo é carregado automaticamente e adiciona a funcionalidade de cancelamento aos ícones:</p>
+            <pre><code>&lt;li data-id="123">
+    &lt;strong>14:00&lt;/strong>
+    &lt;span>Nome do Paciente&lt;/span>
+    &lt;img src="cancel.svg" class="cancel-icon" alt="Cancelar" />
+&lt;/li></code></pre>
+
+            <div class="warning">
+                <strong>Nota:</strong> Certifique-se de que os elementos HTML possuam as classes e 
+                data-attributes corretos para o funcionamento adequado do módulo.
+            </div>
+        </section>
+    </div>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../modules/form-submit.html">Módulo de Agendamento</a></li>
+            <li><a href="../modules/schedules-show.html">Exibição de Agendamentos</a></li>
+            <li><a href="../modules/schedules-load.html">Carregamento de Agendamentos</a></li>
+            <li><a href="../components/ButtonSelect.html">Componente ButtonSelect</a></li>
+            <li><a href="../components/CancelButton.html">Componente CancelButton</a></li>
+        </ul>
+    </nav> 
+</body>
+</html> 

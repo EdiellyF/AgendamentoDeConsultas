@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Documentação - ButtonSelect</title>
+   <link rel="stylesheet" href="../style.css">
+   
+</head>
+<body>
+   <nav class="navigation">
+       <h3>Índice</h3>
+       <ul>
+           <li><a href="#overview">Visão Geral</a></li>
+           <li><a href="#constructor">Construtor</a></li>
+           <li><a href="#methods">Métodos</a></li>
+           <li><a href="#example">Exemplo de Uso</a></li>
+       </ul>
+   </nav>
+    <header class="header">
+       <h1>ButtonSelect</h1>
+       <p>Classe para gerenciamento de seleção de botões em formulários</p>
+   </header>
+    <div class="content">
+       <section id="overview">
+           <h2>Visão Geral</h2>
+           <p>A classe <code>ButtonSelect</code> é responsável por gerenciar a seleção de botões em um formulário, 
+           permitindo alternar classes CSS entre elementos baseado em datasets.</p>
+            <h3>Propriedades Privadas</h3>
+           <ul>
+               <li><code>#element</code>: Elemento DOM principal</li>
+           </ul>
+       </section>
+        <section id="constructor">
+           <h2>Construtor</h2>
+           <div class="method">
+               <h3>new ButtonSelect(element)</h3>
+               <p>Cria uma nova instância de ButtonSelect.</p>
+               
+               <h4>Parâmetros:</h4>
+               <div class="params">
+                   <p><span class="param-name">element</span> (string | Element): Seletor CSS ou elemento DOM</p>
+               </div>
+                <h4>Throws:</h4>
+               <p>Lança um erro se o elemento não for encontrado</p>
+           </div>
+       </section>
+        <section id="methods">
+           <h2>Métodos</h2>
+           
+           <div class="method">
+               <h3>selectElement(classeElement, datasetIDElement, nameDataSet)</h3>
+               <p>Adiciona um evento de clique que alterna uma classe CSS entre elementos.</p>
+               
+               <h4>Parâmetros:</h4>
+               <div class="params">
+                   <p><span class="param-name">classeElement</span> (string): Classe CSS a ser alternada</p>
+                   <p><span class="param-name">datasetIDElement</span> (string): ID do dataset do elemento alvo</p>
+                   <p><span class="param-name">nameDataSet</span> (string): Nome do atributo dataset a ser utilizado</p>
+               </div>
+           </div>
+            <div class="method">
+               <h3>getElement()</h3>
+               <p>Retorna o elemento DOM principal.</p>
+               <h4>Retorno:</h4>
+               <p>Element: Elemento DOM</p>
+           </div>
+       </section>
+        <section id="example">
+           <h2>Exemplo de Uso</h2>
+           <pre><code>// Criando uma instância
+const buttonSelect = new ButtonSelect('#meuBotao');
+// Configurando a seleção do elemento
+buttonSelect.selectElement(
+   'botao-ativo',           // Classe CSS a ser alternada
+   'botao1',                // ID do dataset
+   'data-botao'             // Nome do dataset
+;</code></pre>
+       </section>
+   </div>
+
+   <nav class="main-nav">
+    <ul>
+        <li><a href="../modules/form-submit.html">Módulo de Agendamento</a></li>
+        <li><a href="../modules/schedules-show.html">Exibição de Agendamentos</a></li>
+        <li><a href="../modules/schedules-load.html">Carregamento de Agendamentos</a></li>
+        <li><a href="../components/ButtonSelect.html">Componente ButtonSelect</a></li>
+        <li><a href="../components/CancelButton.html">Componente CancelButton</a></li>
+    </ul>
+</nav>
+</body>
+</html>

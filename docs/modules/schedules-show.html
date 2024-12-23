@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação - Módulo Schedule Show</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="navigation">
+        <h3>Índice</h3>
+        <ul>
+            <li><a href="#overview">Visão Geral</a></li>
+            <li><a href="#dependencies">Dependências</a></li>
+            <li><a href="#methods">Métodos</a></li>
+            <li><a href="#dom-elements">Elementos DOM</a></li>
+            <li><a href="#structure">Estrutura do Agendamento</a></li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <h1>Schedule Show</h1>
+        <p>Módulo responsável pela exibição visual dos agendamentos na interface</p>
+
+    </header>
+    <small class="file-path">Arquivo fonte: <code>src/modules/schedules/show.js</code></small>
+
+    <div class="content">
+        <small class="file-path">Arquivo fonte: <code>src/modules/schedules/show.js</code></small>
+        <section id="overview">
+            <h2>Visão Geral</h2>
+            <p>O módulo <code>show.js</code> é responsável por renderizar os agendamentos na interface do usuário, 
+            organizando-os em períodos (manhã, tarde e noite) e criando elementos DOM dinâmicos para cada agendamento.</p>
+        </section>
+
+        <section id="dependencies">
+            <h2>Dependências</h2>
+            <div class="dependencies-list">
+                <div class="dependency">
+                    <h3>dayjs</h3>
+                    <p>Biblioteca para manipulação de datas</p>
+                    <code>import dayjs from "dayjs";</code>
+                </div>
+            </div>
+        </section>
+
+        <section id="methods">
+            <h2>Métodos</h2>
+            <div class="method">
+                <h3>showSchedules({ dailySchedules })</h3>
+                <p>Função principal que renderiza os agendamentos na interface.</p>
+
+                <h4>Parâmetros:</h4>
+                <div class="params">
+                    <p><code>dailySchedules</code>: Array de objetos contendo os agendamentos do dia</p>
+                </div>
+
+                <h4>Comportamento:</h4>
+                <ul>
+                    <li>Valida se o parâmetro é um array</li>
+                    <li>Limpa agendamentos anteriores</li>
+                    <li>Cria elementos DOM para cada agendamento</li>
+                    <li>Distribui os agendamentos nos períodos corretos</li>
+                </ul>
+
+                <h4>Tratamento de Erros:</h4>
+                <ul>
+                    <li>Valida tipo do parâmetro dailySchedules</li>
+                    <li>Exibe alerta em caso de erro</li>
+                    <li>Registra erros no console</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="dom-elements">
+            <h2>Elementos DOM</h2>
+            <div class="dom-elements">
+                <h3>Seletores Utilizados:</h3>
+                <ul>
+                    <li><code>#period-morning</code>: Container de agendamentos da manhã</li>
+                    <li><code>#period-afternoon</code>: Container de agendamentos da tarde</li>
+                    <li><code>#period-night</code>: Container de agendamentos da noite</li>
+                </ul>
+
+                <h3>Elementos Criados Dinamicamente:</h3>
+                <pre><code>&lt;li data-id="[id]"&gt;
+    &lt;strong&gt;[horário]&lt;/strong&gt;
+    &lt;span&gt;[nome]&lt;/span&gt;
+    &lt;span&gt;[cpf]&lt;/span&gt;
+    &lt;img class="cancel-icon" src="./src/assets/cancel.svg" alt="Cancelar"&gt;
+&lt;/li&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="structure">
+            <h2>Estrutura do Agendamento</h2>
+            <div class="schedule-structure">
+                <h3>Objeto de Agendamento:</h3>
+                <pre><code>{
+    id: string,
+    name: string,
+    cpf: string,
+    when: string // formato: "YYYY-MM-DD HH:mm:ss"
+}</code></pre>
+
+                <h3>Distribuição por Período:</h3>
+                <ul>
+                    <li>Manhã: horários até 12h</li>
+                    <li>Tarde: horários entre 12h e 18h</li>
+                    <li>Noite: horários após 18h</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <h3>⚠️ Importante</h3>
+                <ul>
+                    <li>Certifique-se que os elementos de período existem no DOM</li>
+                    <li>O formato de data deve ser compatível com dayjs</li>
+                    <li>Todos os campos do objeto de agendamento são obrigatórios</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="usage">
+            <h2>Exemplo de Uso</h2>
+            <pre><code>import { showSchedules } from './modules/schedules/show.js';
+
+            <div class="usage-example">
+                <h3>Implementação</h3>
+                <pre><code>// Array de agendamentos
+const dailySchedules = [
+    {
+        id: "123",
+        name: "João Silva",
+        cpf: "123.456.789-00",
+        when: "2024-03-20 10:30:00"
+    }
+];
+
+// Renderiza os agendamentos
+showSchedules({ dailySchedules });</code></pre>
+            </div>
+        </section>
+    </div>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../modules/form-submit.html">Módulo de Agendamento</a></li>
+            <li><a href="../modules/schedules-show.html">Exibição de Agendamentos</a></li>
+            <li><a href="../modules/schedules-load.html">Carregamento de Agendamentos</a></li>
+            <li><a href="../components/ButtonSelect.html">Componente ButtonSelect</a></li>
+            <li><a href="../components/CancelButton.html">Componente CancelButton</a></li>
+        </ul>
+    </nav>
+
+
+
+    <footer>
+        <p><small>Última atualização: <script>document.write(new Date().toLocaleDateString())</script></small></p>
+    </footer>
+</body>
+</html> 

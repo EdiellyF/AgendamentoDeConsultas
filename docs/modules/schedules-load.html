@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação - Módulo Schedule Load</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="navigation">
+        <h3>Índice</h3>
+        <ul>
+            <li><a href="#overview">Visão Geral</a></li>
+            <li><a href="#dependencies">Dependências</a></li>
+            <li><a href="#methods">Métodos</a></li>
+            <li><a href="#usage">Uso</a></li>
+            <li><a href="#flow">Fluxo de Execução</a></li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <h1>Schedule Load</h1>
+        <p>Módulo central para gerenciamento de carregamento de agendamentos</p>
+    </header>
+
+    <div class="content">
+        <section id="overview">
+            <h2>Visão Geral</h2>
+            <p>O módulo <code>load.js</code> é responsável por coordenar o carregamento e atualização dos agendamentos 
+            do sistema. Ele gerencia a sincronização entre a data selecionada, os agendamentos existentes e a 
+            disponibilidade de horários.</p>
+        </section>
+
+        <section id="dependencies">
+            <h2>Dependências</h2>
+            <div class="dependencies-list">
+                <div class="dependency">
+                    <h3>scheduleFetchByDay</h3>
+                    <p>Serviço que realiza a busca de agendamentos por data específica</p>
+                    <code>import { scheduleFetchByDay } from '../../services/schedule-fetch-by-day.js';</code>
+                </div>
+
+                <div class="dependency">
+                    <h3>hoursLoad</h3>
+                    <p>Módulo que gerencia o carregamento e exibição dos horários disponíveis</p>
+                    <code>import { hoursLoad } from '../form/hours-load.js';</code>
+                </div>
+
+                <div class="dependency">
+                    <h3>showSchedules</h3>
+                    <p>Módulo responsável pela exibição visual dos agendamentos</p>
+                    <code>import { showSchedules } from './show.js';</code>
+                </div>
+            </div>
+        </section>
+
+        <section id="methods">
+            <h2>Métodos</h2>
+            <div class="method">
+                <h3>schedulesday()</h3>
+                <p>Função assíncrona principal que gerencia o fluxo de carregamento dos agendamentos.</p>
+
+                <h4>Retorno:</h4>
+                <p><code>Promise&lt;void&gt;</code></p>
+
+                <h4>Elementos DOM Utilizados:</h4>
+                <ul>
+                    <li><code>#date</code>: Input de seleção de data</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="usage">
+            <h2>Como Utilizar</h2>
+            <div class="example">
+                <h3>Importação e Uso Básico</h3>
+                <pre><code>import { schedulesday } from './modules/schedules/load.js';
+
+// Carrega os agendamentos do dia
+await schedulesday();</code></pre>
+            </div>
+
+            <div class="example">
+                <h3>Uso com Event Listeners</h3>
+                <pre><code>// Atualiza agendamentos quando a data muda
+document.querySelector('#date').addEventListener('change', schedulesday);
+
+// Carrega agendamentos ao iniciar a página
+document.addEventListener('DOMContentLoaded', schedulesday);</code></pre>
+            </div>
+        </section>
+
+        <section id="flow">
+            <h2>Fluxo de Execução</h2>
+            <div class="flow-diagram">
+                <ol>
+                    <li>Obtém a data selecionada do input</li>
+                    <li>Realiza chamada à API para buscar agendamentos do dia</li>
+                    <li>Atualiza a interface com os agendamentos encontrados</li>
+                    <li>Carrega e atualiza os horários disponíveis</li>
+                </ol>
+            </div>
+
+            <div class="warning">
+                <h3>⚠️ Importante</h3>
+                <ul>
+                    <li>Certifique-se que o elemento <code>#date</code> existe no DOM</li>
+                    <li>A função deve ser chamada após o carregamento do DOM</li>
+                    <li>Tratamento de erros da API é gerenciado internamente</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../modules/form-submit.html">Módulo de Agendamento</a></li>
+            <li><a href="../modules/schedules-show.html">Exibição de Agendamentos</a></li>
+            <li><a href="../modules/schedules-load.html">Carregamento de Agendamentos</a></li>
+            <li><a href="../components/ButtonSelect.html">Componente ButtonSelect</a></li>
+            <li><a href="../components/CancelButton.html">Componente CancelButton</a></li>
+        </ul>
+    </nav>
+
+    <footer>
+        <p><small>Última atualização: <script>document.write(new Date().toLocaleDateString())</script></small></p>
+    </footer>
+</body>
+</html> 
