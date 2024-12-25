@@ -110,4 +110,4 @@ As configurações do projeto podem ser ajustadas em:
 
 ## 📞 Suporte
 
-Para suporte, envie um email para `edielly.ferreiraf@exemplo.com` ou abra uma issue no GitHub.
+Para suporte, envie um email para `edielly.ferreiraf@gmail.com` ou abra uma issue no GitHub.
